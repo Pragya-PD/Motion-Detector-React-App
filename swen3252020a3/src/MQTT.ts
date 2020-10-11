@@ -7,7 +7,7 @@ class MQTT extends Component{
     static mqttClient: any = null;
     static message: any = '';
     static messageToSend: string = 'Type your message here.';
-    static topic: string = 'swen325/assignment3';
+    static topic: string = 'swen325/a3';
     static clientId: string = '8ee6a2e72e864ee5a8ddff2deaeda3dd'; // this string must be unique to every client
   
     constructor(props:any) {

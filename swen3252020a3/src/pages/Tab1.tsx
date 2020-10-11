@@ -1,39 +1,60 @@
-import React from 'react';
-import { IonApp, IonButton, IonCard, IonCardContent, IonCardHeader, IonContent, IonHeader, IonPage, IonTextarea, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import './Tab1.css';
-import MQTT from '../../src/MQTT'
+import React from "react";
+import {
+  IonApp,
+  IonButton,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonContent,
+  IonHeader,
+  IonPage,
+  IonTextarea,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/react";
+import "./Tab1.css";
+import Profile from "../components/Profile";
+import LastSeen from "../components/LastSeen";
+import { IonReactRouter } from "@ionic/react-router";
 
 const Tab1: React.FC = () => {
   return (
     <IonApp>
-  <IonHeader>
-    <IonToolbar>
-      <IonTitle>MQTT Tutorial</IonTitle>
-    </IonToolbar>
-  </IonHeader>
+      <IonContent>
+        <Profile
+          name="Richard Johsnon"
+          address="23 Carluke Street, Paparangi"
+        />
+        <LastSeen location="Bedroom" time="14.25.21" />
 
-<IonContent>
-  <IonCard>
-    <IonCardContent>Status: <b>{MQTT.mqttStatus}</b></IonCardContent>
-  </IonCard>
+        <IonReactRouter>
+          <IonCard className="card">
+            <IonCardContent>
+              <IonButton fill="clear" expand="full" className="button" href="/managebatterylevels">
+                Check Battery Levels
+              </IonButton>
+            </IonCardContent>
+          </IonCard>
 
-  <IonButton onClick={MQTT.connect} expand="block">Connect</IonButton>
-  <IonButton onClick={MQTT.disconnect} expand="block">Disconnect</IonButton>
+          <IonCard className="card">
+            <IonCardContent>
+            <IonButton fill="clear" expand="full" className="button" href="/trackmovements">
+            Track Richard's Movements
+              </IonButton>
+            </IonCardContent>
+          </IonCard>
 
-  <IonCard>
-    <IonCardHeader>Message Received:</IonCardHeader>
-    <IonCardContent>{MQTT.message}</IonCardContent>
-  </IonCard>
+          <IonCard className="card">
+            <IonCardContent>
+            <IonButton fill="clear" expand="full" className="button" href="/managerooms">
+            Manage Rooms
+              </IonButton>
+            </IonCardContent>
+          </IonCard>
 
-  <IonCard>
-      <IonCardHeader>Message to Send:</IonCardHeader>
-      <IonTextarea onIonChange={e=>MQTT.setMessage(e.detail.value!)}></IonTextarea>
-  </IonCard>
-
-  <IonButton onClick={MQTT.sendMessage} expand="block">Send Message</IonButton>
-</IonContent>
-</IonApp>
+        </IonReactRouter>
+      </IonContent>
+    </IonApp>
   );
 };
 

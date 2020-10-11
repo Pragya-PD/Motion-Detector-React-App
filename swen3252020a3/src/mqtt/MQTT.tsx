@@ -1,8 +1,14 @@
 import { Component } from "react";
 declare var Paho:any
 
+interface Props{
 
-class MQTT extends Component{
+}
+interface State{
+
+}
+
+class MQTT extends Component<Props,State>{
     static mqttStatus: string = 'Disconnected';
     static mqttClient: any = null;
     static message: any = '';

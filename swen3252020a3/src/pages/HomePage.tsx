@@ -4,15 +4,9 @@ import {
   IonButton,
   IonCard,
   IonCardContent,
-  IonCardHeader,
   IonContent,
-  IonHeader,
-  IonPage,
-  IonTextarea,
-  IonTitle,
-  IonToolbar,
 } from "@ionic/react";
-import "./Tab1.css";
+import "./HomePage.css";
 import Profile from "../components/Profile";
 import LastSeen from "../components/LastSeen";
 import { IonReactRouter } from "@ionic/react-router";

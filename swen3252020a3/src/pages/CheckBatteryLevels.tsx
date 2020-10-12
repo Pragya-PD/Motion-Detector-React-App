@@ -35,13 +35,6 @@ class CheckBatteryLevels extends Component<Props, State>{
     this.mqtt.connect();
   }
 
-  print() {
-    var array = DataStore.getResponses();
-    array.forEach((element: any) => {
-      console.log(element);
-    });
-  }
-
   getBatteryLevels() {
     var array = DataStore.getResponses();
     let livingPerc = new Array(), kitchenPerc = new Array(), diningPerc = new Array(), toiletPerc = new Array(), bedroomPerc = new Array();

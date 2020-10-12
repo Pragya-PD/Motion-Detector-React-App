@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   IonApp,
   IonButton,
@@ -10,10 +10,23 @@ import "./HomePage.css";
 import Profile from "../components/Profile";
 import LastSeen from "../components/LastSeen";
 import { IonReactRouter } from "@ionic/react-router";
+import ConnectToIoT from "./ConnectToIoT";
 
-const Tab1: React.FC = () => {
-  return (
-    <IonApp>
+interface Props{
+
+}
+interface State{
+  
+}
+
+class Tab1 extends Component <Props,State>{
+
+  componentDidMount(){
+    var mqtt = new ConnectToIoT("").connect();
+  }
+
+  render(){
+    return (
       <IonContent>
         <Profile
           name="Richard Johsnon"
@@ -24,7 +37,7 @@ const Tab1: React.FC = () => {
         <IonReactRouter>
           <IonCard className="card">
             <IonCardContent>
-              <IonButton fill="clear" expand="full" className="button" href="/managebatterylevels">
+              <IonButton fill="clear" expand="full" className="button" href="/checkbatterylevels">
                 Check Battery Levels
               </IonButton>
             </IonCardContent>
@@ -48,8 +61,9 @@ const Tab1: React.FC = () => {
 
         </IonReactRouter>
       </IonContent>
-    </IonApp>
   );
+  }
+  
 };
 
 export default Tab1;

@@ -32,7 +32,7 @@ class Tab1 extends Component <Props,State>{
           name="Richard Johsnon"
           address="23 Carluke Street, Paparangi"
         />
-        <LastSeen location="Bedroom" time="14.25.21" />
+        <LastSeen/>
 
         <IonReactRouter>
           <IonCard className="card">
@@ -53,8 +53,8 @@ class Tab1 extends Component <Props,State>{
 
           <IonCard className="card">
             <IonCardContent>
-            <IonButton fill="clear" expand="full" className="button" href="/managerooms">
-            Manage Rooms
+            <IonButton fill="clear" expand="full" className="button" href="/manageprofile">
+            Manage Profile
               </IonButton>
             </IonCardContent>
           </IonCard>

@@ -15,7 +15,7 @@ import { ellipse, square, triangle } from "ionicons/icons";
 import HomePage from "./pages/HomePage";
 import CheckBatteryLevels from "./pages/CheckBatteryLevels";
 import TrackMovements from "./pages/TrackMovements";
-import ManageRooms from "./pages/ManageRooms";
+import ManageRooms from "./pages/ManageProfile";
 import ConnectToIot from "./pages/ConnectToIoT";
 
 /* Core CSS required for Ionic components to work properly */
@@ -54,7 +54,7 @@ const App: React.FC = () => (
             component={TrackMovements}
             exact={true}
           />
-          <Route path="/managerooms" component={ManageRooms} exact={true} />
+          <Route path="/manageprofile" component={ManageRooms} exact={true} />
           <Route
             path="/"
             render={() => <Redirect to="/connectToIoT" />}

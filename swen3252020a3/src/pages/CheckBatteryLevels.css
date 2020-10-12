@@ -9,3 +9,13 @@
     width: 100px;
     font-size: 10px;
 }
+
+.batteryOkay{
+    color: white;
+    font-size: large;
+}
+
+.batteryLow{
+    color: red;
+    font-size: x-large;
+}

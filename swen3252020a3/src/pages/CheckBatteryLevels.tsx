@@ -14,6 +14,11 @@ interface State {
   dining: string
   bathroom: string
   bedroom: string
+  livingClass:string
+  kitchenClass:string
+  diningClass:string
+  bathroomClass:string
+  bedroomClass:string
 }
 
 class CheckBatteryLevels extends Component<Props, State>{
@@ -27,7 +32,12 @@ class CheckBatteryLevels extends Component<Props, State>{
       kitchen: "Calculating",
       dining: "Calculating",
       bathroom: "Calculating",
-      bedroom: "Calculating"
+      bedroom: "Calculating",
+      livingClass:"batteryOkay",
+      kitchenClass:"batteryOkay",
+      diningClass:"batteryOkay",
+      bathroomClass:"batteryOkay",
+      bedroomClass:"batteryOkay"
     }
   }
 
@@ -55,13 +65,45 @@ class CheckBatteryLevels extends Component<Props, State>{
       }
     });
 
-    this.setState({
-      living: livingPerc[livingPerc.length - 1],
-      kitchen: kitchenPerc[kitchenPerc.length - 1],
-      dining: diningPerc[diningPerc.length - 1],
-      bathroom: toiletPerc[toiletPerc.length - 1],
-      bedroom: bedroomPerc[bedroomPerc.length - 1]
-    });
+
+      if(parseInt(livingPerc[livingPerc.length - 1],10)<50){
+        this.setState({livingClass:"batteryLow"})
+      }
+      else{
+        this.setState({livingClass:"batteryOkay"})
+      }
+      if(parseInt(kitchenPerc[kitchenPerc.length - 1],10)<50){
+        this.setState({kitchenClass:"batteryLow"})
+      }
+      else{
+        this.setState({kitchenClass:"batteryOkay"})
+      }
+      if(parseInt(diningPerc[diningPerc.length - 1],10)<50){
+        this.setState({diningClass:"batteryLow"})
+      }
+      else{
+        this.setState({diningClass:"batteryOkay"})
+      }
+      if(parseInt(toiletPerc[toiletPerc.length - 1],10)<50){
+        this.setState({bathroomClass:"batteryLow"})
+      }
+      else{
+        this.setState({bathroomClass:"batteryOkay"})
+      }
+      if(parseInt(bedroomPerc[bedroomPerc.length - 1],10)<50){
+        this.setState({bedroomClass:"batteryLow"})
+      }
+      else{
+        this.setState({bedroomClass:"batteryOkay"})
+      }
+
+      this.setState({
+        living:livingPerc[livingPerc.length - 1],
+        kitchen:kitchenPerc[kitchenPerc.length - 1],
+        dining:diningPerc[diningPerc.length - 1],
+        bathroom:toiletPerc[toiletPerc.length - 1],
+        bedroom:bedroomPerc[bedroomPerc.length - 1]
+      })
   }
 
   render() {
@@ -74,31 +116,31 @@ class CheckBatteryLevels extends Component<Props, State>{
 
         <IonCard>
           <IonCardHeader class="ion-text-center">Living</IonCardHeader>
-          <IonCardContent class="ion-text-center" className="battery">{this.state.living}</IonCardContent>
+          <IonCardContent class="ion-text-center" className={this.state.livingClass}>{this.state.living}</IonCardContent>
           {/* <IonButton onClick={()=>this.getBatteryLevels()}/> */}
         </IonCard>
 
         <IonCard>
           <IonCardHeader class="ion-text-center">Kitchen</IonCardHeader>
-          <IonCardContent class="ion-text-center" className="battery">{this.state.kitchen}</IonCardContent>
+          <IonCardContent class="ion-text-center" className={this.state.kitchenClass}>{this.state.kitchen}</IonCardContent>
           {/* <IonButton onClick={()=>this.getBatteryLevels()}/> */}
         </IonCard>
 
         <IonCard>
           <IonCardHeader class="ion-text-center">Toilet</IonCardHeader>
-          <IonCardContent class="ion-text-center" className="battery">{this.state.bathroom}</IonCardContent>
+          <IonCardContent class="ion-text-center" className={this.state.bathroomClass}>{this.state.bathroom}</IonCardContent>
           {/* <IonButton onClick={()=>this.getBatteryLevels()}/> */}
         </IonCard>
 
         <IonCard>
           <IonCardHeader class="ion-text-center">Dining</IonCardHeader>
-          <IonCardContent class="ion-text-center" className="battery">{this.state.dining}</IonCardContent>
+          <IonCardContent class="ion-text-center" className={this.state.diningClass}>{this.state.dining}</IonCardContent>
           {/* <IonButton onClick={()=>this.getBatteryLevels()}/> */}
         </IonCard>
 
         <IonCard>
           <IonCardHeader class="ion-text-center">Bedroom</IonCardHeader>
-          <IonCardContent class="ion-text-center" className="battery">{this.state.bedroom}</IonCardContent>
+          <IonCardContent class="ion-text-center" className={this.state.bedroomClass}>{this.state.bedroom}</IonCardContent>
           {/* <IonButton onClick={()=>this.getBatteryLevels()}/> */}
         </IonCard>
 

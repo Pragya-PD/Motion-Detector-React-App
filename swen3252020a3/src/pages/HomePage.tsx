@@ -53,8 +53,8 @@ class Tab1 extends Component <Props,State>{
 
           <IonCard className="card">
             <IonCardContent>
-            <IonButton fill="clear" expand="full" className="button" href="/managerooms">
-            Manage Rooms
+            <IonButton fill="clear" expand="full" className="button" href="/manageprofile">
+            Manage Profile
               </IonButton>
             </IonCardContent>
           </IonCard>

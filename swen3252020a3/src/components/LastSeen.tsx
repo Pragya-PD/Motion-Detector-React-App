@@ -82,13 +82,13 @@ class LastSeen extends Component<Props, State> {
 
     if (room !== " ") {
       let lastTimeStamp: string;
-      if (room === "living") {
+      if (room === "Living") {
         lastTimeStamp = livingTime[livingTime.length - 1];
-      } else if (room === "kitchen") {
+      } else if (room === "Kitchen") {
         lastTimeStamp = kitchenTime[kitchenTime.length - 1];
-      } else if (room === "dining") {
+      } else if (room === "Dining") {
         lastTimeStamp = diningTime[diningTime.length - 1];
-      } else if (room === "toilet") {
+      } else if (room === "Toilet") {
         lastTimeStamp = toiletTime[toiletTime.length - 1];
       } else {
         lastTimeStamp = bedroomTime[bedroomTime.length - 1];
@@ -113,15 +113,15 @@ class LastSeen extends Component<Props, State> {
 
   getRoomName(i: number): string {
     if (i === 0) {
-      return "living";
+      return "Living";
     } else if (i === 1) {
-      return "kitchen";
+      return "Kitchen";
     } else if (i === 2) {
-      return "dining";
+      return "Dining";
     } else if (i === 3) {
-      return "toilet";
+      return "Toilet";
     } else {
-      return "bedroom";
+      return "Bedroom";
     }
   }
 

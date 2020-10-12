@@ -108,15 +108,14 @@ class ConnectToIoT extends Component<Props, State> {
       <IonApp>
         <IonContent>
           <IonReactRouter>
-            <IonButton className="connect">
+            <IonButton 
+            className="connect"
+            href={this.state.mqttStatus==='Connected'?"/home":"/"}>
               {this.state.mqttStatus}
+              {<br/>}{<br/>}
+              {this.state.mqttStatus==='Connected'?"Click Me :)":"Please Wait.."}
             </IonButton>
           </IonReactRouter>
-
-          <IonButton href={this.state.mqttStatus==='Connected'?"/home":"/"}>
-            {this.state.mqttStatus==='Connected'?"Lesgo":"Wait.."}
-          </IonButton>
-
         </IonContent>
       </IonApp>
     );
